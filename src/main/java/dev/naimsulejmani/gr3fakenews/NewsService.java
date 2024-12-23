@@ -1,4 +1,9 @@
 package dev.naimsulejmani.gr3fakenews;
 
-public interface NewsService {
+import java.util.List;
+
+public interface NewsService extends BaseService<NewsDto, Long> {
+    List<NewsDto> findAllByCategory(Category category);
+
+    List<NewsDto> findAllByAuthor(String author);
 }

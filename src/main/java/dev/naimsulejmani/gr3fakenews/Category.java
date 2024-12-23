@@ -1,4 +1,11 @@
 package dev.naimsulejmani.gr3fakenews;
 
-public class Category {
+public enum Category {
+    BUSINESS,
+    ENTERTAINMENT,
+    GENERAL,
+    HEALTH,
+    SCIENCE,
+    SPORTS,
+    TECHNOLOGY
 }
