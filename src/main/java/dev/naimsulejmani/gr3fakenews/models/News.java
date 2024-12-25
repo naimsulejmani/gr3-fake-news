@@ -1,4 +1,4 @@
-package dev.naimsulejmani.gr3fakenews;
+package dev.naimsulejmani.gr3fakenews.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

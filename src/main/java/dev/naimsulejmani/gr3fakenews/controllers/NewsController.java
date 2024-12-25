@@ -1,5 +1,6 @@
-package dev.naimsulejmani.gr3fakenews;
+package dev.naimsulejmani.gr3fakenews.controllers;
 
+import dev.naimsulejmani.gr3fakenews.services.NewsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

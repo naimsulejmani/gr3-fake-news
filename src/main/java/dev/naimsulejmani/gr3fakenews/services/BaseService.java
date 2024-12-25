@@ -1,4 +1,4 @@
-package dev.naimsulejmani.gr3fakenews;
+package dev.naimsulejmani.gr3fakenews.services;
 
 import java.util.List;
 

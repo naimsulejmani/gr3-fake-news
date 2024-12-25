@@ -1,5 +1,6 @@
-package dev.naimsulejmani.gr3fakenews;
+package dev.naimsulejmani.gr3fakenews.dtos;
 
+import dev.naimsulejmani.gr3fakenews.models.Category;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

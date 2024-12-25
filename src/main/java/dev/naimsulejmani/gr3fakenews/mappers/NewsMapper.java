@@ -1,5 +1,8 @@
-package dev.naimsulejmani.gr3fakenews;
+package dev.naimsulejmani.gr3fakenews.mappers;
 
+import dev.naimsulejmani.gr3fakenews.dtos.ListingNewsDto;
+import dev.naimsulejmani.gr3fakenews.dtos.NewsDto;
+import dev.naimsulejmani.gr3fakenews.models.News;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;

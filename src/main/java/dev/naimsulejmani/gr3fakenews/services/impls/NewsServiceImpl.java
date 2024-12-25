@@ -1,5 +1,10 @@
-package dev.naimsulejmani.gr3fakenews;
+package dev.naimsulejmani.gr3fakenews.services.impls;
 
+import dev.naimsulejmani.gr3fakenews.dtos.NewsDto;
+import dev.naimsulejmani.gr3fakenews.mappers.NewsMapper;
+import dev.naimsulejmani.gr3fakenews.models.Category;
+import dev.naimsulejmani.gr3fakenews.repositories.NewsRepository;
+import dev.naimsulejmani.gr3fakenews.services.NewsService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

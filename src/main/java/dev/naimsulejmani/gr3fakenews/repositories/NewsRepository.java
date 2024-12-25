@@ -1,5 +1,7 @@
-package dev.naimsulejmani.gr3fakenews;
+package dev.naimsulejmani.gr3fakenews.repositories;
 
+import dev.naimsulejmani.gr3fakenews.models.Category;
+import dev.naimsulejmani.gr3fakenews.models.News;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

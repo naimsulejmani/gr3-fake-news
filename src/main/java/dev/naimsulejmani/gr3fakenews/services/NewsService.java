@@ -1,4 +1,7 @@
-package dev.naimsulejmani.gr3fakenews;
+package dev.naimsulejmani.gr3fakenews.services;
+
+import dev.naimsulejmani.gr3fakenews.models.Category;
+import dev.naimsulejmani.gr3fakenews.dtos.NewsDto;
 
 import java.util.List;
 
