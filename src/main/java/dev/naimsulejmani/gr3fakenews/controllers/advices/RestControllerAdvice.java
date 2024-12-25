@@ -33,4 +33,25 @@ public class RestControllerAdvice {
         errorResponse.setPath(request.getRequestURI());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
     }
+
+//    @ExceptionHandler(Exception.class)
+//    public ResponseEntity<?> handleExcepion(Exception e, HttpServletRequest request) {
+//
+//        int status = HttpStatus.INTERNAL_SERVER_ERROR.value();
+//        String statusMessage = HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase();
+//        ErrorResponse errorResponse = new ErrorResponse();
+//        errorResponse.setErrorMessage(e.getMessage());
+//        errorResponse.setPath(request.getRequestURI());
+//
+//        if(e instanceof IllegalArgumentException) {
+//            status = HttpStatus.BAD_REQUEST.value();
+//            statusMessage = HttpStatus.BAD_REQUEST.getReasonPhrase();
+//        } else if(e instanceof EntityNotFoundException) {
+//            status = HttpStatus.NOT_FOUND.value();
+//            statusMessage = HttpStatus.NOT_FOUND.getReasonPhrase();
+//        }
+//
+//
+//        return ResponseEntity.status(status).body(errorResponse);
+//    }
 }
