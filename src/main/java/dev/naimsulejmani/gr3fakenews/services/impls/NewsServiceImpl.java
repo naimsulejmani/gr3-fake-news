@@ -1,8 +1,10 @@
 package dev.naimsulejmani.gr3fakenews.services.impls;
 
+import dev.naimsulejmani.gr3fakenews.dtos.ArchiveNewsDto;
 import dev.naimsulejmani.gr3fakenews.dtos.NewsDto;
 import dev.naimsulejmani.gr3fakenews.mappers.NewsMapper;
 import dev.naimsulejmani.gr3fakenews.models.Category;
+import dev.naimsulejmani.gr3fakenews.models.News;
 import dev.naimsulejmani.gr3fakenews.repositories.NewsRepository;
 import dev.naimsulejmani.gr3fakenews.services.NewsService;
 import jakarta.persistence.EntityNotFoundException;
@@ -27,6 +29,25 @@ public class NewsServiceImpl implements NewsService {
     public List<NewsDto> findAllByAuthor(String author) {
         var newList = repository.findAllByAuthor(author);
         return mapper.toDtoList(newList);
+    }
+
+    @Override
+    public NewsDto archive(long id, ArchiveNewsDto archiveNewsDto) {
+        if (id != archiveNewsDto.getId()) {
+            throw new IllegalArgumentException("Id mismatch");
+        }
+
+        var optionalNews = repository.findById(id);
+        if (optionalNews.isEmpty()) {
+            throw new EntityNotFoundException("News with id " + id + " not found");
+        }
+        News news = optionalNews.get();
+        news.setArchived(archiveNewsDto.isArchived());
+        news.setArchivedBy(archiveNewsDto.getArchivedBy());
+        news.setArchivedAt(archiveNewsDto.getArchivedAt());
+        repository.save(news);
+
+        return mapper.toDto(news);
     }
 
     @Override

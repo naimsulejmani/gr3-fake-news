@@ -1,5 +1,6 @@
 package dev.naimsulejmani.gr3fakenews.controllers.api.v1;
 
+import dev.naimsulejmani.gr3fakenews.dtos.ArchiveNewsDto;
 import dev.naimsulejmani.gr3fakenews.dtos.NewsDto;
 import dev.naimsulejmani.gr3fakenews.services.NewsService;
 import lombok.RequiredArgsConstructor;
@@ -36,6 +37,7 @@ public class NewsApiController {
     }
 
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void removeNewsById(@PathVariable long id) {
         service.removeById(id);
     }
@@ -43,6 +45,11 @@ public class NewsApiController {
     @GetMapping("/default")
     public NewsDto getDefaultNews() {
         return new NewsDto();
+    }
+
+    @PatchMapping("/{id}/archive")
+    public NewsDto patchNews(@PathVariable long id, @RequestBody ArchiveNewsDto newsDto) {
+        return service.archive(id, newsDto);
     }
 
 }
