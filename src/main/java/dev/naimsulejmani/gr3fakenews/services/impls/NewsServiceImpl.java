@@ -58,6 +58,11 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public NewsDto modify(Long id, NewsDto dto) {
+
+        if (id != dto.getId()) {
+            throw new IllegalArgumentException("Id mismatch");
+        }
+
         var exists = repository.existsById(id);
         if (!exists) {
             throw new EntityNotFoundException("News with id " + id + " not found");

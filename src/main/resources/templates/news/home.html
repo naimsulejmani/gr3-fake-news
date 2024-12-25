@@ -6,5 +6,8 @@
 </head>
 <body>
 
+<ul th:each="news : ${newsList}">
+    <li th:text="${news.title}"></li>
+</ul>
 </body>
 </html>
