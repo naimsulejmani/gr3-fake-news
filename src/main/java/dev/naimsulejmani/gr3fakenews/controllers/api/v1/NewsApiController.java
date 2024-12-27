@@ -2,15 +2,19 @@ package dev.naimsulejmani.gr3fakenews.controllers.api.v1;
 
 import dev.naimsulejmani.gr3fakenews.dtos.ArchiveNewsDto;
 import dev.naimsulejmani.gr3fakenews.dtos.NewsDto;
+import dev.naimsulejmani.gr3fakenews.infrastructure.groups.OnPost;
+import dev.naimsulejmani.gr3fakenews.infrastructure.groups.OnPut;
 import dev.naimsulejmani.gr3fakenews.services.NewsService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Positive;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Validated
 @RestController
 @RequestMapping("/api/v1/news")
 @RequiredArgsConstructor
@@ -27,15 +31,17 @@ public class NewsApiController {
         return service.findById(id);
     }
 
+    @Validated(OnPost.class)
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public NewsDto addNews(@Valid @RequestBody NewsDto newsDto) {
         return service.add(newsDto);
     }
 
+    @Validated(OnPut.class)
     @PutMapping("/{id}")
     public NewsDto modifyNews(@Valid @Positive(message = "Id must be positive") @PathVariable long id
-            , @RequestBody NewsDto newsDto) {
+            , @Valid @RequestBody NewsDto newsDto) {
         return service.modify(id, newsDto);
     }
 

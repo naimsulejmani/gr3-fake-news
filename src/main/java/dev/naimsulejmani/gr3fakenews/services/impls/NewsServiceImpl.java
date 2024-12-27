@@ -88,6 +88,8 @@ public class NewsServiceImpl implements NewsService {
         if (!exists) {
             throw new EntityNotFoundException("News with id " + id + " not found");
         }
+//        var oldEntity = repository.findById(id).get();
+
 
         var entity = mapper.toEntity(dto);
         var savedEntity = repository.save(entity);

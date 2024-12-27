@@ -1,5 +1,7 @@
 package dev.naimsulejmani.gr3fakenews.dtos;
 
+import dev.naimsulejmani.gr3fakenews.infrastructure.groups.OnPost;
+import dev.naimsulejmani.gr3fakenews.infrastructure.groups.OnPut;
 import dev.naimsulejmani.gr3fakenews.models.Category;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -13,7 +15,11 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class NewsDto {
-    @PositiveOrZero(message = "Id must be positive or zero")
+//    @PositiveOrZero(message = "Id must be positive or zero")
+
+    @Positive(message = "Id must be positive", groups = {OnPut.class})
+    @Min(value = 0, message = "Id must be zero", groups = {OnPost.class})
+    @Max(value = 0, message = "Id must be zero", groups = {OnPost.class})
     private long id;
 
     @NotNull(message = "Title must not be null")
@@ -32,6 +38,7 @@ public class NewsDto {
 
     @Size(max = 500, message = "Url to image must be at most 500 characters long")
     private String urlToImage;
+
 
     @NotNull(message = "Author must not be null")
     @NotBlank(message = "Author must not be blank")

@@ -4,6 +4,7 @@ package dev.naimsulejmani.gr3fakenews.controllers.advices;
 import dev.naimsulejmani.gr3fakenews.dtos.ErrorResponse;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -51,7 +52,8 @@ public class RestControllerAdvice {
         } else if (e instanceof IllegalArgumentException ||
                 e instanceof DataIntegrityViolationException ||
                 e instanceof MethodArgumentNotValidException ||
-                e instanceof HandlerMethodValidationException
+                e instanceof HandlerMethodValidationException ||
+                e instanceof ConstraintViolationException
         ) {
             status = HttpStatus.BAD_REQUEST;
         }
