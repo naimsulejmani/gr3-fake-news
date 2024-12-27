@@ -6,8 +6,19 @@
 </head>
 <body>
 
-<ul th:each="news : ${newsList}">
-    <li th:text="${news.title}"></li>
-</ul>
+<p>Called Time: <span th:text="${calledTime}"></span></p>
+<p>Javascript Time: <span id="jsTime"></span></p>
+<hr/>
+<input type="text" id="title" placeholder="Enter Title here..."/>
+<button type="button" id="showNews">Show news</button>
+<button type="button" id="deleteNews">Delete news</button>
+<script>
+    document.getElementById("jsTime").innerText = new Date().toISOString();
+</script>
+
+<script src="/js/news/api.js"></script>
+<script src="/js/news/app.js"></script>
+
+
 </body>
 </html>

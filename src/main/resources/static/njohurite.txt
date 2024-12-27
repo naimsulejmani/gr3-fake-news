@@ -1,0 +1,28 @@
+1. Methods (done)
+2. variables (const, let, var) (done)
+3. loops (done), (for, for..of, for..in)
+4. conditionals (done), (if, else, else if, switch)
+5. functions (done)
+6. classes (NOPE)
+7. objects (JSON) (done)
+8. arrays (done - 1/2) -> push, pop, shift, unshift, clear, splice, slice, concat, indexOf, lastIndexOf, includes, find, findIndex, filter, map, reduce, forEach
+9. lambda expression -> () => {} (done)
+10. promises (done) -> then, catch, finally -> lambda expression
+11. async/await (done)
+12. fetch(done) -> GET, POST, PUT,PATCH, DELETE
+13. local storage (done) -> setItem, getItem, removeItem, clear
+14. axios -> GET, POST, PUT,PATCH, DELETE
+15. Callback -> function as a parameter (done)
+
+
+
+News API:
+1. news.api.js -> nje klase qe mi menaxhon te gjitha thirrjet ne api dhe
+me kthen rezultatet ne JSON format
+        * URL-in si dhe metodat GET, POST, PUT, PATH, DELETE -> fetch apo axios
+2. news.ui.js -> nje klase qe mi menaxhon te gjitha funksionet qe i lidhen UI
+        * funksionet qe i lidhen me manipulimin e DOM-it
+        * funksionet qe i lidhen me shfaqjen e te dhenave ne UI
+3. app.js -> nje klase qe mi menaxhon te gjitha funksionet qe i lidhen me logjiken e aplikacionit
+        * funksionet qe i lidhen me logjiken e aplikacionit
+        * funksionet qe i lidhen me eventet e ndryshme
