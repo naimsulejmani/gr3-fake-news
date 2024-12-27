@@ -5,6 +5,7 @@ import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import java.time.LocalDateTime;
 
@@ -25,6 +26,7 @@ public class NewsDto {
     @Size(max = 50_000, message = "Description must be at most 50,000 characters long")
     private String description;
 
+
     @Size(max = 500, message = "Url must be at most 500 characters long")
     private String url;
 
@@ -38,7 +40,7 @@ public class NewsDto {
 
     @NotNull(message = "Published at must not be null")
     @PastOrPresent(message = "Published at must be in the past or present")
-    private String publishedAt;
+    private LocalDateTime publishedAt;
 
 
     private LocalDateTime createdAt = LocalDateTime.now();

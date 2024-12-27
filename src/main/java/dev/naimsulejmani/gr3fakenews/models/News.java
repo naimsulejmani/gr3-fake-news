@@ -35,7 +35,7 @@ public class News {
     private String author;
 
     @Column(nullable = false)
-    private String publishedAt;
+    private LocalDateTime publishedAt;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;
