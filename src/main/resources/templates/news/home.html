@@ -3,19 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
 
-<p>Called Time: <span th:text="${calledTime}"></span></p>
-<p>Javascript Time: <span id="jsTime"></span></p>
-<hr/>
-<input type="text" id="title" placeholder="Enter Title here..."/>
-<button type="button" id="showNews">Show news</button>
-<button type="button" id="deleteNews">Delete news</button>
-<script>
-    document.getElementById("jsTime").innerText = new Date().toISOString();
-</script>
+<!--<p>Called Time: <span th:text="${calledTime}"></span></p>-->
+<!--<p>Javascript Time: <span id="jsTime"></span></p>-->
+<!--<hr/>-->
+<!--<input type="text" id="title" placeholder="Enter Title here..."/>-->
+<!--<button type="button" id="showNews">Show news</button>-->
+<!--<button type="button" id="deleteNews">Delete news</button>-->
+<!--<script>-->
+<!--    document.getElementById("jsTime").innerText = new Date().toISOString();-->
+<!--</script>-->
 
+<div class="container">
+    <div class="row mt-3">
+
+        <div class="row">
+            <div class="col-6 m-3">
+                <button type="button" class="btn btn-primary"
+                        data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        data-bs-whatever="@mdo">Add</button>
+
+
+                <button type="button" class="btn btn-info" id="btnRefresh">Refresh</button>
+            </div>
+        </div>
+
+        <hr>
+
+        <div id="loader">
+            <p>Loading...</p>
+
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="50" height="50">
+                <circle
+                        cx="50"
+                        cy="50"
+                        r="40"
+                        stroke="#4caf50"
+                        stroke-width="10"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-dasharray="200"
+                        stroke-dashoffset="200">
+                    <animate
+                            attributeName="stroke-dashoffset"
+                            from="200"
+                            to="0"
+                            dur="1s"
+                            repeatCount="indefinite" />
+                    <animateTransform
+                            attributeName="transform"
+                            type="rotate"
+                            from="0 50 50"
+                            to="360 50 50"
+                            dur="2s"
+                            repeatCount="indefinite" />
+                </circle>
+            </svg>
+
+        </div>
+
+
+        <div class="row" id="newsList">
+
+        </div>
+
+
+    </div>
+
+
+    <div class="modal fade modal-xl" id="exampleModal" tabindex="-1"
+         aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">New Fake News</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="author" class="col-form-label">Author:</label>
+                            <input type="text" class="form-control" id="author" name="author">
+                        </div>
+                        <div class="mb-3">
+                            <label for="title" class="col-form-label">Title:</label>
+                            <input class="form-control" id="title" name="title"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="col-form-label">Description:</label>
+                            <textarea class="form-control" id="description" rows="5"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Send message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 <script src="/js/news/api.js"></script>
 <script src="/js/news/app.js"></script>
 
