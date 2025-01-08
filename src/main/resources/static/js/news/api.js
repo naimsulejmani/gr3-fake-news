@@ -20,6 +20,28 @@ class NewsApi {
         return response.status === 204 ? "News deleted successfully" : "News not found";
     }
 
+    async postNews(news) {
+        const response = await fetch(this.baseUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(news)
+        });
+        return response.json();
+    }
+
+    async modifyNews(id, news) {
+        const response = await fetch(this.baseUrl + '/' + id, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(news)
+        });
+        return response.json();
+    }
+
     // getNews() {
     //     return fetch(this.baseUrl)
     //         .then(response => response.json());
