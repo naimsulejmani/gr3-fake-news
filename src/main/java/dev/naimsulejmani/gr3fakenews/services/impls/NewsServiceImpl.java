@@ -8,6 +8,7 @@ import dev.naimsulejmani.gr3fakenews.models.News;
 import dev.naimsulejmani.gr3fakenews.repositories.NewsRepository;
 import dev.naimsulejmani.gr3fakenews.services.NewsService;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -77,6 +78,7 @@ public class NewsServiceImpl implements NewsService {
         return mapper.toDto(savedEntity);
     }
 
+    @Transactional
     @Override
     public NewsDto modify(Long id, NewsDto dto) {
 
